@@ -282,14 +282,15 @@ def unfolding_weighted_tree(T,root_of_branch,number_of_copies=0):
 
 
 #####################
-tab1,tab2 = st.tabs(["Leia-me","Algoritmo 3"])
+tab1,tab2 = st.tabs(["Readme","Algorithm"])
 
 with tab1:
-    st.write('O objetivo dessa aplicação é ser um simludaor do trabalho entitulado "Algoritmo para construção de matrizes ótimas de árvores diminimais".')
-    st.write('Nessa aplicação, o leitor inicia com uma seed, e vai fazendo s-duplicações a sua vontade, tal que a árvore gerada será apresentada na tela e o Spectro de cada $T_i$ também.')
-    st.write('Selecione os parâmetros de entrada no menu a sua esquerda do Algoritmo 2 e clique em "Set Parameters".')
-    st.write('Embaixo da árvore apresentada, escolha um vértice para sua branch ser duplicada (o leitor pode olhar seu número na figura acima) e a quantidade de dupliações dessa branch. Clique em Realizar s-duplicação na branch desejada.')
-    st.write('Após alguma árvore já ser apresentada o leitor pode escolher, no menu a esquerda, o layout da árvore apresentada e poder visualizar a matriz daquela árvore.')
+    st.write('The goal of this application is to be a simulator of the work entitled "Generating acyclic symmetric matrices with the minimum number of distinct eigenvalues".')
+    st.write('In this application, the user starts with a seed and can perform s-duplications at will, so that the generated tree $T_i$ will be displayed on the screen along with its spectrum.')
+    st.write('Select the input parameters in the left menu of Algorithm and click on "Set Parameters". After that move to the tab "Algorithm".')
+    st.write('Below the displayed tree, choose a vertex for its branch to be duplicated (the user can look up its number in the figure above) and the number of duplications for that branch. Click on "Perform s-duplication" in the desired branch.')
+    st.write('Once some tree have been displayed, the user can choose the tree layout in the left menu and view the matrix of that tree.')
+    st.write('If you have any doubts, please contact us at lucas.siviero@ufrgs.br.')
 
 with tab2:
     st.markdown("""
@@ -300,7 +301,7 @@ with tab2:
     </style>
     """, unsafe_allow_html=True)
 
-    st.sidebar.markdown('<p class="big-font">Entradas:</p>', unsafe_allow_html=True)
+    st.sidebar.markdown('<p class="big-font">Inputs:</p>', unsafe_allow_html=True)
 
     alpha = st.sidebar.number_input("Alpha", min_value=None, max_value=None,value=0,step=1)
     beta = st.sidebar.number_input("Beta", min_value=None, max_value=None,value=64,step=1)
@@ -370,15 +371,15 @@ with tab2:
 
             central_edge = nx.center(M1)
             col1,col2 = st.columns(2)
-            vertex = col1.number_input("Selecione a raiz da branch que deseja s-duplicar",min_value=1,max_value=M1.number_of_nodes()-1,step=1,value=1)
-            number_of_copies = col2.number_input("Selecione o número s de cópias desejadas",min_value=1,max_value=10,step=1,value=1)
+            vertex = col1.number_input("Select the root of the branch you wish to s-duplicate.",min_value=1,max_value=M1.number_of_nodes()-1,step=1,value=1)
+            number_of_copies = col2.number_input("Select s, the desired number of copies.",min_value=1,max_value=10,step=1,value=1)
             _,col = st.columns([0.28,0.72])
-            submitted = col.form_submit_button("Realizar s-duplicação na branch desejada")
+            submitted = col.form_submit_button("Perform s-duplication on the desired branch.")
 
             if submitted:
 
                 if vertex in central_edge:
-                    st.warning("Vértice não pode ser escolhido pois duplicação aumentaria o diâmetro.")
+                    st.warning("The vertex cannot be chosen for duplication as it would increase the diameter.")
                 else:
                     M1 = unfolding_weighted_tree(M1,vertex,number_of_copies=number_of_copies)
                     M1 = nx.convert_node_labels_to_integers(M1,first_label=0)
