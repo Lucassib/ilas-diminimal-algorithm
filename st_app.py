@@ -290,6 +290,7 @@ with tab1:
     st.write('Select the input parameters in the left menu of Algorithm and click on "Set Parameters". After that move to the tab "Algorithm".')
     st.write('Below the displayed tree, choose a vertex for its branch to be duplicated (the user can look up its number in the figure above) and the number of duplications for that branch. Click on "Perform s-duplication" in the desired branch.')
     st.write('Once some tree have been displayed, the user can choose the tree layout in the left menu and view the matrix of that tree.')
+    st.write('You can access the full repository at https://github.com/Lucassib/ilas-diminimal-algorithm.')
     st.write('If you have any doubts, please contact us at lucas.siviero@ufrgs.br.')
 
 with tab2:
