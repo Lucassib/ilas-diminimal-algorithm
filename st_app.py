@@ -285,11 +285,9 @@ def unfolding_weighted_tree(T,root_of_branch,number_of_copies=0):
 tab1,tab2 = st.tabs(["Readme","Algorithm"])
 
 with tab1:
-    st.write('The goal of this application is to be a simulator of the work entitled "Generating acyclic symmetric matrices with the minimum number of distinct eigenvalues".')
-    st.write('In this application, the user starts with a seed and can perform s-duplications at will, so that the generated tree $T_i$ will be displayed on the screen along with its spectrum.')
-    st.write('Select the input parameters in the left menu of Algorithm and click on "Set Parameters". After that move to the tab "Algorithm".')
-    st.write('Below the displayed tree, choose a vertex for its branch to be duplicated (the user can look up its number in the figure above) and the number of duplications for that branch. Click on "Perform s-duplication" in the desired branch.')
-    st.write('Once some tree have been displayed, the user can choose the tree layout in the left menu and view the matrix of that tree.')
+    st.write('In this application we run the algorithm presented in the manuscript entitled "Generating acyclic symmetric matrices with the minimum number of distinct eigenvalues"')
+    st.write('The user selects the input parameters and click on "Set Parameters". Next, the user shall open the tab "Algorithm".')
+    st.write('On the tab “Algorithm”, below the displayed tree, the user can choose a vertex and its branch to be duplicated. and the number of duplications of that branch. Next, click on "Perform s-duplication".')
     st.write('You can access the full repository at https://github.com/Lucassib/ilas-diminimal-algorithm.')
     st.write('If you have any doubts, please contact us at lucas.siviero@ufrgs.br.')
 
